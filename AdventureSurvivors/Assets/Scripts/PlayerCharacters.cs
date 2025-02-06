@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerCharacters : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private List<HeroAnimator> heroes;
     private Rigidbody2D rb;
     private Vector2 moveDirection;
 
@@ -23,6 +25,13 @@ public class PlayerCharacters : MonoBehaviour
     private void Move()
     {
         rb.linearVelocity = moveDirection * moveSpeed;
+
+        bool walking = rb.linearVelocity != Vector2.zero;
+
+        foreach (var hero in heroes)
+        {
+            hero.SetWalking(walking);
+        }
     }
 
     private void UpdateFacingRight()
@@ -34,19 +43,20 @@ public class PlayerCharacters : MonoBehaviour
         if (facingRight != newValue)
         {
             facingRight = newValue;
-            UpdateXScale();
+            //UpdateXScale();
+            foreach (var hero in heroes)
+            {
+                hero.UpdateXScale(facingRight);
+            }
         }
     }
 
-    private void UpdateXScale()
-    {
-        if (moveDirection.x == transform.localScale.x || moveDirection.x == 0f)
-            return;
-
-        Vector3 scale = transform.localScale;
-        scale.x = facingRight ? 1f : -1f;
-        transform.localScale = scale;
-    }
+    //private void UpdateXScale()
+    //{
+    //    Vector3 scale = transform.localScale;
+    //    scale.x = facingRight ? 1f : -1f;
+    //    transform.localScale = scale;
+    //}
 
     #region InputEvents
 
