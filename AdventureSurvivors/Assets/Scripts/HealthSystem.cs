@@ -4,6 +4,7 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     public event Action OnDead;
+    public event Action OnHealthChanged;
     public event Action OnDamaged;
     public event Action OnHealed;
 
@@ -34,6 +35,7 @@ public class HealthSystem : MonoBehaviour
         }
 
         OnDamaged?.Invoke();
+        OnHealthChanged?.Invoke();
     }
 
     public virtual void TakeHeal(int amount)
@@ -44,11 +46,13 @@ public class HealthSystem : MonoBehaviour
             health = healthMax;
 
         OnHealed?.Invoke();
+        OnHealthChanged?.Invoke();
     }
 
     protected virtual void Die()
     {
         OnDead?.Invoke();
+        OnHealthChanged?.Invoke();
     }
 
     public virtual float GetHealthNormalized()
