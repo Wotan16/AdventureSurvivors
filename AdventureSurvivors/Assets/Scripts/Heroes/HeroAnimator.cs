@@ -6,6 +6,7 @@ public class HeroAnimator : MonoBehaviour
     private const string WALKING_BOOL = "Walking";
     private const string DIE_TRIGGER = "DIE";
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
 
     public void SetWalking(bool value)
@@ -20,8 +21,6 @@ public class HeroAnimator : MonoBehaviour
 
     public void UpdateXScale(bool facingRight)
     {
-        Vector3 scale = transform.localScale;
-        scale.x = facingRight ? 1f : -1f;
-        transform.localScale = scale;
+        spriteRenderer.flipX = !facingRight;
     }
 }

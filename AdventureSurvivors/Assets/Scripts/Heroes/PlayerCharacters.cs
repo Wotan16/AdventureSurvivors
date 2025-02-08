@@ -4,16 +4,34 @@ using UnityEngine.InputSystem;
 
 public class PlayerCharacters : MonoBehaviour
 {
+    public static PlayerCharacters Instance {  get; private set; }
+
     [SerializeField] private float moveSpeed;
-    [SerializeField] private List<HeroAnimator> heroes;
+    [SerializeField] private List<HeroBase> heroes;
+    [SerializeField] private EnemiesAround enemiesAround;
     private Rigidbody2D rb;
     private Vector2 moveDirection;
 
-    private bool facingRight = true;
+    public EnemyBase closestEnemy => enemiesAround.closestEnemy;
+    public bool facingRight { get; private set; }
 
     private void Awake()
     {
+        InitializeSingleton();
+
         rb = GetComponent<Rigidbody2D>();
+        facingRight = true;
+    }
+
+    private void InitializeSingleton()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("More than one " + GetType().Name);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
 
     private void Update()
@@ -43,20 +61,12 @@ public class PlayerCharacters : MonoBehaviour
         if (facingRight != newValue)
         {
             facingRight = newValue;
-            //UpdateXScale();
             foreach (var hero in heroes)
             {
-                hero.UpdateXScale(facingRight);
+                hero.UpdateFacingDirection(facingRight);
             }
         }
     }
-
-    //private void UpdateXScale()
-    //{
-    //    Vector3 scale = transform.localScale;
-    //    scale.x = facingRight ? 1f : -1f;
-    //    transform.localScale = scale;
-    //}
 
     #region InputEvents
 
