@@ -19,7 +19,7 @@ public class HealthBarUI : WindowUI
             Hide();
             return;
         }
-
+        
         Show();
         filler.fillAmount = healthSystem.GetHealthNormalized();
     }
