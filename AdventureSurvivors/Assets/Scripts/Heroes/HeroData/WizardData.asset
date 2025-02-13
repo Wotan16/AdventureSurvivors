@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: WizardData
   m_EditorClassIdentifier: 
   heroName: Wizard
+  heroIcon: {fileID: -5908238798454654921, guid: e14991ff8ba60114dbff99febfd3e7c3, type: 3}
   prefab: {fileID: 4972206011447203506, guid: 9542dc8bf5ea0c44a94dd22be9e41019, type: 3}
