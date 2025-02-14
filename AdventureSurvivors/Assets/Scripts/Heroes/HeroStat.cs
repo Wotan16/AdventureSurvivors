@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public class HeroStat
 {
     public event Action OnValueChanged;
 
+    public HeroStatType type;
     public double baseValue;
     public double minValue;
     public double maxValue;
@@ -14,8 +16,9 @@ public class HeroStat
     public double Value;
     public int ValueInt { get { return (int)Value; } }
 
-    public HeroStat(double baseValue, double minValue, double maxValue, double modifier = 0, double multiplier = 1f)
+    public HeroStat(HeroStatType type, double baseValue, double minValue, double maxValue, double modifier = 0, double multiplier = 1f)
     {
+        this.type = type;
         this.baseValue = baseValue;
         this.minValue = minValue;
         this.maxValue = maxValue;

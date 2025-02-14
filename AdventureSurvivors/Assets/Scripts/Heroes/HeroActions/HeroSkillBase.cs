@@ -1,13 +1,15 @@
 using UnityEngine;
 
-public abstract class HeroActionBase : MonoBehaviour
+public abstract class HeroSkillBase : MonoBehaviour
 {
+    public SkillData skillData;
     [SerializeField] protected float cooldown = 1f;
     protected float cdDelta = 1f;
     [SerializeField] protected HeroBase hero;
 
-    public void SetHero(HeroBase hero)
+    public void SetSkillParams(HeroBase hero, SkillData skillData)
     {
+        this.skillData = skillData;
         this.hero = hero;
     }
 
@@ -15,9 +17,9 @@ public abstract class HeroActionBase : MonoBehaviour
     {
         if(cdDelta <= 0f)
         {
-            if (TryPerformAction())
+            if (TryPerformSkill())
             {
-                float cdMod = 1 / (float)hero.attackSpeed.Value;
+                float cdMod = 1 / (float)hero.Stats.GetStatOfType(HeroStatType.AttackSpeed).Value;
                 cdDelta = cooldown * cdMod;
             }
             return;
@@ -26,7 +28,7 @@ public abstract class HeroActionBase : MonoBehaviour
         cdDelta -= Time.deltaTime;
     }
 
-    protected abstract bool TryPerformAction();
+    protected abstract bool TryPerformSkill();
 
     protected Vector2 GetDirectionToClosestEnemy()
     {

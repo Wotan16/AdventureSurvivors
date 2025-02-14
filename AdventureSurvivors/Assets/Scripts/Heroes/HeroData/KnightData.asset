@@ -15,3 +15,22 @@ MonoBehaviour:
   heroName: Knight
   heroIcon: {fileID: -2875184811977189179, guid: bb50f1f8015d0564eb0742aef08f2210, type: 3}
   prefab: {fileID: 5057283709324219934, guid: 551d8e40148809442abe2bb09d7c393e, type: 3}
+  rank: 0
+  statsData:
+    baseValuesList:
+    - statType: 0
+      value: 25
+    - statType: 1
+      value: 5
+    - statType: 2
+      value: 1
+    - statType: 3
+      value: 1.2
+    - statType: 4
+      value: 0
+    - statType: 5
+      value: 10
+    - statType: 6
+      value: 1
+    - statType: 7
+      value: 0

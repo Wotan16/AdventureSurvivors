@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442ca5ea90e7fe642b3d3ce9663f51e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillData: {fileID: 0}
   cooldown: 1
   hero: {fileID: 5057283709324219934}
   swordHitbox: {fileID: 7625720542597256049}
@@ -342,9 +343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1affef70383f6428bcbe96ba88129f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePhysicalDamage: 1000
-  baseMagicalDamage: 5
-  baseAttackSpeed: 1
+  minMaxStatValues: {fileID: 11400000, guid: 2d44a692ddaaf9743a967faf5ebc6c8f, type: 2}
+  heroData: {fileID: 11400000, guid: 2a232ca467fd6f842b2da8607bfdc5ef, type: 2}
   healthSystem: {fileID: 6164451060042587487}
   hitReaction: {fileID: 897171343327571186}
   heroAnimator: {fileID: 1832095413645889703}

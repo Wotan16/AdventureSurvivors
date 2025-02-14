@@ -15,3 +15,22 @@ MonoBehaviour:
   heroName: Archer
   heroIcon: {fileID: 5420657165879536120, guid: d92a0b290839d0d44953a276d81eecb3, type: 3}
   prefab: {fileID: 4224210479039592419, guid: 76806b010ed6e8a4c8cd5abd9326ae93, type: 3}
+  rank: 0
+  statsData:
+    baseValuesList:
+    - statType: 0
+      value: 15
+    - statType: 1
+      value: 5
+    - statType: 2
+      value: 1.5
+    - statType: 3
+      value: 1
+    - statType: 4
+      value: 1
+    - statType: 5
+      value: 2
+    - statType: 6
+      value: 1
+    - statType: 7
+      value: 1

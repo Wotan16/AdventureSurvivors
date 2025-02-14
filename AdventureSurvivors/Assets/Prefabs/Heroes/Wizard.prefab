@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1db82335188604d949986e76935454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillData: {fileID: 0}
   cooldown: 0.75
   hero: {fileID: 4972206011447203506}
   prefab: {fileID: 6671167068100278914, guid: 83039dea7ffec5646a6a058bbd2b640d, type: 3}
@@ -96,9 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1affef70383f6428bcbe96ba88129f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePhysicalDamage: 5
-  baseMagicalDamage: 40
-  baseAttackSpeed: 1
+  minMaxStatValues: {fileID: 11400000, guid: 2d44a692ddaaf9743a967faf5ebc6c8f, type: 2}
+  heroData: {fileID: 11400000, guid: 85d933caee44a1444b902ec4f506603a, type: 2}
   healthSystem: {fileID: 2674416487572762032}
   hitReaction: {fileID: 4771892203070959486}
   heroAnimator: {fileID: 9197651853168267269}
