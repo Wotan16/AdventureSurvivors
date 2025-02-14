@@ -8,5 +8,5 @@ public class HeroData : ScriptableObject
     public Sprite heroIcon;
     public HeroBase prefab;
     //List of skill data
-    //Maybe base stats
+    
 }
